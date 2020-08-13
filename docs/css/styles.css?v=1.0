@@ -1,6 +1,0 @@
-.anchor:target {
-  box-shadow: 0 0 0 4px rgba(10, 174, 64, .8);
-}
-div:target {
-  background:lightgoldenrodyellow;
-}
