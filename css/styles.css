@@ -1,0 +1,16 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  padding: 16px;
+}
+
+div {
+  max-width: 1024px;
+  padding: 16px;
+}
+
+div:target {
+  background: lightgoldenrodyellow;
+}

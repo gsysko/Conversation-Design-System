@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/styles.css?v=1.0"></link>
+<link rel="stylesheet" href="css/styles.css?v=1.0">
 # conversation-design-system
 
 > 💁‍♀️ This repository contains an Assistant to help designers adhere to the conventions in the
