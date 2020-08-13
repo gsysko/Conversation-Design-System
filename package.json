@@ -1,17 +1,17 @@
 {
-  "name": "sketch-assistant-template",
-  "homepage": "https://github.com/sketch-hq/sketch-assistant-template",
-  "version": "1.0.0",
+  "name": "conversation-design-system",
+  "homepage": "https://github.com/gsysko/Conversation-Design-System",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "sketch": "dist/sketch.js",
   "license": "MIT",
   "sketch-assistant": {
-    "title": "Sketch Assistant Template",
-    "description": "Template repository for a starter Assistant project",
+    "title": "CDS Design",
+    "description": "Sketch Assistant for designers working on the Conversation Design System",
     "icon": ""
   },
   "author": {
-    "name": "Your Name or Company Name"
+    "name": "Graham Sysko"
   },
   "keywords": [
     "sketch",
@@ -44,6 +44,7 @@
     "webpack-cli": "3.3.12"
   },
   "dependencies": {
-    "@sketch-hq/sketch-assistant-types": "6.0.0"
+    "@sketch-hq/sketch-assistant-types": "6.0.0",
+    "@sketch-hq/sketch-core-assistant": "^6.1.0"
   }
 }

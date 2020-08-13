@@ -1,16 +1,15 @@
-# sketch-assistant-template
+# conversation-design-system
 
-> 💁‍♀️ This repository contains a starter project for developing a new Assistant.
+> 💁‍♀️ This repository contains an Assistant to help designers adhere to the conventions in the
+> Conversation Design System. It defines the following rules...
 
-👉
-[Click here to generate a new project using this repository as a template](https://github.com/sketch-hq/sketch-assistant-template/generate)
+## conversation-design-system/name-required-pages
 
-## Getting started
+- Files must contain a "⚛️ symbols" page, containing the symbols and building blocks necessary to
+  define all functionality of a component.
+- Files must conatin a "💁‍ component overview", showing examples of how components are typically
+  configured.
 
-For in-depth guides head over to the [Sketch Developer](https://developer.sketch.com/assistants/)
-site.
+## @sketch-hq/sketch-core-assistant/name-pattern-pages
 
-- [Getting started](https://developer.sketch.com/assistants/getting-started)
-- [Writing a rule](https://developer.sketch.com/assistants/writing-a-rule)
-- [Publishing](https://developer.sketch.com/assistants/publishing)
-- And more!
+- Pages should be either: "⚛️ symbols", "💁‍ component overview", or "🏝 <exploration name>"
