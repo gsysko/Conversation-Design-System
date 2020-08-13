@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+<link rel="stylesheet" href="css/styles.css?v=1.0"></link>
+# conversation-design-system
 
-You can use the [editor on GitHub](https://github.com/gsysko/Conversation-Design-System/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+> 💁‍♀️ This repository contains an Assistant to help designers adhere to the conventions in the
+> Conversation Design System. It defines the following rules...
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<div id="conversation-design-system/name-required-pages" class="anchor">
+## conversation-design-system/name-required-pages
 
-### Markdown
+- Files must contain a "⚛️ symbols" page, containing the symbols and building blocks necessary to
+  define all functionality of a component.
+- Files must conatin a "💁‍ component overview", showing examples of how components are typically
+configured.
+</div>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<div id="@sketch-hq/sketch-core-assistant/name-pattern-pages" class="anchor">
+## @sketch-hq/sketch-core-assistant/name-pattern-pages
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gsysko/Conversation-Design-System/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Pages should be either: "⚛️ symbols", "💁‍ component overview", or "🏝 <exploration name>"
+</div>
