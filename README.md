@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="css/styles.css?v=1.0"></link>
 # conversation-design-system
 
 > 💁‍♀️ This repository contains an Assistant to help designers adhere to the conventions in the
 > Conversation Design System. It defines the following rules...
 
-<div id="conversation-design-system/name-required-pages">
+<div id="conversation-design-system/name-required-pages" class="anchor">
 ## conversation-design-system/name-required-pages
 
 - Files must contain a "⚛️ symbols" page, containing the symbols and building blocks necessary to
@@ -12,7 +13,7 @@
 configured.
 </div>
 
-<div id="@sketch-hq/sketch-core-assistant/name-pattern-pages">
+<div id="@sketch-hq/sketch-core-assistant/name-pattern-pages" class="anchor">
 ## @sketch-hq/sketch-core-assistant/name-pattern-pages
 
 - Pages should be either: "⚛️ symbols", "💁‍ component overview", or "🏝 <exploration name>"
