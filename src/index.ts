@@ -58,7 +58,7 @@ const assistant: AssistantPackage = [
           },
           '@sketch-hq/sketch-core-assistant/name-pattern-pages': {
             active: true,
-            allowed: ['⚛️ symbols', '💁‍♂️‍ component overview', '🏝 .+'],
+            allowed: ['⚛️ symbols', '💁‍♂️ component overview', '🏝 .+'],
             forbidden: [],
             ruleTitle: 'Non-standard page name found',
           },
