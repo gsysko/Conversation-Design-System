@@ -41,7 +41,7 @@ const pageNaming: RuleDefinition = {
   name: 'conversation-design-system/name-required-pages',
   title: 'Require page not found',
   description:
-    'Checkst the following required pages are present: ⚛️ symbols, 💁‍ component overview.',
+    'Checkst the following required pages are present: ⚛️ symbols, 💁‍♂️‍ component overview.',
 }
 
 const assistant: AssistantPackage = [
@@ -54,11 +54,11 @@ const assistant: AssistantPackage = [
         rules: {
           'conversation-design-system/name-required-pages': {
             active: true,
-            required: ['⚛️ symbols', '💁‍ component overview'],
+            required: ['⚛️ symbols', '💁‍♂️ component overview'],
           },
           '@sketch-hq/sketch-core-assistant/name-pattern-pages': {
             active: true,
-            allowed: ['⚛️ symbols', '💁‍ component overview', '🏝 .+'],
+            allowed: ['⚛️ symbols', '💁‍♂️‍ component overview', '🏝 .+'],
             forbidden: [],
             ruleTitle: 'Non-standard page name found',
           },
