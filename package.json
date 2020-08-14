@@ -1,6 +1,6 @@
 {
   "name": "conversation-design-system",
-  "homepage": "https://github.com/gsysko/Conversation-Design-System",
+  "homepage": "https://gsysko.github.io/Conversation-Design-System/",
   "version": "0.0.2",
   "main": "dist/index.js",
   "sketch": "dist/sketch.js",
