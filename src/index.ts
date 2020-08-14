@@ -5,6 +5,7 @@ const pageNaming: RuleDefinition = {
   rule: async (context) => {
     const { utils } = context
 
+    //TODO: need to improve this to use regex, so emoji are do not need to be gendered/color specific.
     function assertOption(value: unknown): asserts value is string[] {
       if (!Array.isArray(value)) {
         throw new Error('Option value is not an array')
@@ -58,7 +59,13 @@ const assistant: AssistantPackage = [
           },
           '@sketch-hq/sketch-core-assistant/name-pattern-pages': {
             active: true,
-            allowed: ['⚛️ symbols', '💁‍♂️ component overview', '🏝 .+'],
+            allowed: [
+              '⚛️ symbols',
+              '💁‍♂️ component overview',
+              '💁\\‍S\\S component overview',
+              '💁‍♀️ component overview',
+              '🏝 .+',
+            ],
             forbidden: [],
             ruleTitle: 'Non-standard page name found',
           },
