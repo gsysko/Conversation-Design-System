@@ -8,7 +8,7 @@
   "sketch-assistant": {
     "title": "CDS Design",
     "description": "Sketch Assistant for designers working on the Conversation Design System",
-    "icon": ""
+    "icon": "https://raw.githubusercontent.com/gsysko/Conversation-Design-System/main/docs/img/cds.png"
   },
   "author": {
     "name": "Graham Sysko"
@@ -18,7 +18,8 @@
     "sketch files",
     "sketch assistant",
     "assistant",
-    "design ops"
+    "design ops",
+    "conversation design system"
   ],
   "files": [
     "dist"
