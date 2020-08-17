@@ -1,7 +1,7 @@
 {
   "name": "conversation-design-system",
   "homepage": "https://gsysko.github.io/Conversation-Design-System/",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "sketch": "dist/sketch.js",
   "license": "MIT",
@@ -17,7 +17,6 @@
     "sketch",
     "sketch files",
     "sketch assistant",
-    "public",
     "assistant",
     "design ops"
   ],

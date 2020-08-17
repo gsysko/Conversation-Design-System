@@ -9,7 +9,7 @@
 
 - Files must contain a "⚛️ symbols" page, containing the symbols and building blocks necessary to
   define all functionality of a component.
-- Files must conatin a "💁‍ component overview", showing examples of how components are typically
+- Files must contain a "💁‍ component overview", showing examples of how components are typically
 configured.
 </div>
 
