@@ -24,6 +24,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gsysko/Conversation-Design-System"
+  },
   "scripts": {
     "test": "jest --no-cache",
     "build": "rm -rf dist && npm run build:node && npm run build:sketch",
