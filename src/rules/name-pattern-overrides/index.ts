@@ -4,6 +4,8 @@ import { RuleDefinition, FileFormat } from '@sketch-hq/sketch-assistant-types'
 export const overrideNaming: RuleDefinition = {
   rule: async (context) => {
     const { utils } = context
+
+    //Assert options are strings or arrays of strings
     function assertOption(value: unknown): asserts value is string[] {
       if (!Array.isArray(value)) {
         throw new Error('Option value is not an array')
@@ -15,16 +17,35 @@ export const overrideNaming: RuleDefinition = {
       }
     }
 
-    // Get a configuration option named "required"
+    const IGNORE = ['artboard', 'page', 'symbolMaster', 'text']
+
+    // Get configuration options named
+    const fillOverride = utils.getOption('fillOverride')
+    const imageOverride = utils.getOption('imageOverride')
     const iconOverride = utils.getOption('iconOverride')
+    const textOverride = utils.getOption('textOverride')
+    assertOption(fillOverride)
+    assertOption(imageOverride)
     assertOption(iconOverride)
+    assertOption(textOverride)
     // const allowedPatterns = iconOverride.map((pattern) => new RegExp(pattern))
+
+    if (fillOverride && imageOverride && iconOverride && textOverride) {
+    }
 
     //Make a list of all icon symobls
     var foreignMasters: FileFormat.SymbolMaster[] = Array.from(utils.foreignObjects.symbolMaster)
     foreignMasters = foreignMasters.filter((master) => {
       return new RegExp('icon.+', 'i').test(master.name)
     })
+
+    //Make a list of all foreign styles
+    const foreignStyles: ForeignStyleMap = new Map(
+      [...utils.foreignObjects.MSImmutableForeignLayerStyle].map((o) => [
+        o.localSharedStyle.do_objectID,
+        o.sourceLibraryName,
+      ]),
+    )
 
     // Iterate all symbol
     const masters = Array.from(utils.objects.symbolMaster)
@@ -45,7 +66,22 @@ export const overrideNaming: RuleDefinition = {
             }
             if (!match) {
               utils.report(
-                `Icon layer ${layer.name} should be prefixed with "${iconOverride[0]} ".`,
+                `Icon layer ${layer.name} should be prefixed with "${iconOverride[0]}"  (followed by a space).`,
+                layer,
+              )
+            }
+          }
+        } else if (layer._class === FileFormat.ClassValue.Rectangle) {
+          if (layer.style?.fills?.find((fill) => fill.image)) {
+            var match = false
+            for (const requirement of imageOverride) {
+              if (new RegExp('^' + requirement + ' .+$').test(layer.name)) {
+                match = true
+              }
+            }
+            if (!match) {
+              utils.report(
+                `Image layer ${layer.name} should be prefixed with "${imageOverride[0]}" (followed by a space).`,
                 layer,
               )
             }
