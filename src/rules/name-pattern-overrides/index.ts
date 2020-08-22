@@ -10,14 +10,9 @@ export const overrideNaming: RuleDefinition = {
     const { utils } = context
 
     //Assert options are strings or arrays of strings
-    function assertOption(value: unknown): asserts value is string[] {
-      if (!Array.isArray(value)) {
-        throw new Error('Option value is not an array')
-      }
-      for (let i = 0; i < value.length; i++) {
-        if (typeof value[i] !== 'string') {
-          throw new Error('Option array element is not a string')
-        }
+    function assertOption(value: unknown): asserts value is string {
+      if (typeof value !== 'string') {
+        throw new Error('Option array element is not a string')
       }
     }
 
@@ -30,25 +25,17 @@ export const overrideNaming: RuleDefinition = {
     assertOption(imageOverride)
     assertOption(iconOverride)
     assertOption(textOverride)
-    // const allowedPatterns = iconOverride.map((pattern) => new RegExp(pattern))
 
     if (fillOverride && imageOverride && iconOverride && textOverride) {
     }
 
-    //Make a list of all icon symobls
+    //Make a list of all icon symobls (following sunco "icon/..." or garden "<size>px-icons/..." format)
     var foreignMasters: FileFormat.SymbolMaster[] = Array.from(utils.foreignObjects.symbolMaster)
     foreignMasters = foreignMasters.filter((master) => {
-      return new RegExp('icon.+', 'i').test(master.name)
+      return new RegExp('(?:/|^)(?:ddpx-)?icon(?!-).+', 'i').test(master.name)
     })
 
-    //Make a list of all foreign styles
-    // const foreignStyles: ForeignStyleMap = new Map(
-    //   [...utils.foreignObjects.MSImmutableForeignLayerStyle].map((o) => [
-    //     o.localSharedStyle.do_objectID,
-    //     o.sourceLibraryName,
-    //   ]),
-    // )
-
+    //TODO: Exempt overrides that have been toggled off.
     // Iterate all symbol
     const masters = Array.from(utils.objects.symbolMaster)
     for (const master of masters) {
@@ -60,42 +47,24 @@ export const overrideNaming: RuleDefinition = {
               return master.symbolID === layer.symbolID
             })
           ) {
-            var match = false
-            for (const requirement of iconOverride) {
-              if (new RegExp('^' + requirement + ' .+$').test(layer.name)) {
-                match = true
-              }
-            }
-            if (!match) {
+            if (!new RegExp('^↪?' + iconOverride + ' .+$').test(layer.name)) {
               utils.report(
-                `Icon layer ${layer.name} should be prefixed with "${iconOverride[0]}"  (followed by a space).`,
+                `Icon layer ${layer.name} should be prefixed with "${iconOverride}"  (followed by a space).`,
                 layer,
               )
             }
           }
         } else if (layer._class === FileFormat.ClassValue.Text) {
-          var match = false
-          for (const requirement of textOverride) {
-            if (new RegExp('^' + requirement + ' .+$').test(layer.name)) {
-              match = true
-            }
-          }
-          if (!match) {
+          if (!new RegExp('^↪?' + textOverride + ' .+$').test(layer.name)) {
             utils.report(
-              `Text layer ${layer.name} should be prefixed with "${textOverride[0]}"  (followed by a space).`,
+              `Text layer ${layer.name} should be prefixed with "${textOverride}"  (followed by a space).`,
               layer,
             )
           }
         } else if (layer.style?.fills?.find((fill) => fill.image)) {
-          var match = false
-          for (const requirement of imageOverride) {
-            if (new RegExp('^' + requirement + ' .+$').test(layer.name)) {
-              match = true
-            }
-          }
-          if (!match) {
+          if (!new RegExp('^↪?' + imageOverride + ' .+$').test(layer.name)) {
             utils.report(
-              `Image layer ${layer.name} should be prefixed with "${imageOverride[0]}" (followed by a space).`,
+              `Image layer ${layer.name} should be prefixed with "${imageOverride}" (followed by a space).`,
               layer,
             )
           }
@@ -103,15 +72,9 @@ export const overrideNaming: RuleDefinition = {
           if (typeof layer.sharedStyleID === 'string') {
             if (layer.style?.borders?.length) continue //Ignore styles with borders
             if (layer.style?.shadows?.length) continue //Ignore styles with shadows
-            var match = false
-            for (const requirement of fillOverride) {
-              if (new RegExp('^' + requirement + ' .+$').test(layer.name)) {
-                match = true
-              }
-            }
-            if (!match) {
+            if (!new RegExp('^↪?' + fillOverride + ' .+$').test(layer.name)) {
               utils.report(
-                `Fill layer ${layer.name} should be prefixed with "${fillOverride[0]}" (followed by a space).`,
+                `Fill layer ${layer.name} should be prefixed with "${fillOverride}" (followed by a space).`,
                 layer,
               )
             }
