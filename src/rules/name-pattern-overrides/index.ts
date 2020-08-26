@@ -107,45 +107,6 @@ export const overrideNaming: RuleDefinition = {
             }
           }
         }
-        //   if (layer._class === FileFormat.ClassValue.SymbolInstance) {
-        //     if (
-        //       foreignMasters.some((master) => {
-        //         return master.symbolID === layer.symbolID
-        //       })
-        //     ) {
-        //       if (!new RegExp('^↪?' + iconOverride + ' .+$').test(layer.name)) {
-        //         utils.report(
-        //           `Icon layer ${layer.name} should be prefixed with "${iconOverride}"  (followed by a space).`,
-        //           layer,
-        //         )
-        //       }
-        //     }
-        //   } else if (layer._class === FileFormat.ClassValue.Text) {
-        //     if (!new RegExp('^↪?' + textOverride + ' .+$').test(layer.name)) {
-        //       utils.report(
-        //         `Text layer ${layer.name} should be prefixed with "${textOverride}"  (followed by a space).`,
-        //         layer,
-        //       )
-        //     }
-        //   } else if (layer.style?.fills?.find((fill) => fill.image)) {
-        //     if (!new RegExp('^↪?' + imageOverride + ' .+$').test(layer.name)) {
-        //       utils.report(
-        //         `Image layer ${layer.name} should be prefixed with "${imageOverride}" (followed by a space).`,
-        //         layer,
-        //       )
-        //     }
-        //   } else if (!IGNORE.includes(layer._class)) {
-        //     if (typeof layer.sharedStyleID === 'string') {
-        //       if (layer.style?.borders?.length) continue //Ignore styles with borders
-        //       if (layer.style?.shadows?.length) continue //Ignore styles with shadows
-        //       if (!new RegExp('^↪?' + fillOverride + ' .+$').test(layer.name)) {
-        //         utils.report(
-        //           `Fill layer ${layer.name} should be prefixed with "${fillOverride}" (followed by a space).`,
-        //           layer,
-        //         )
-        //       }
-        //     }
-        //   }
       }
     }
   },
