@@ -49,18 +49,18 @@ export const overrideNaming: RuleDefinition = {
             switch (overrideDetail[1]) {
               case '_image':
                 //check image format
-                if (!new RegExp('^↪?' + imageOverride + ' .+$').test(layer.name)) {
+                if (!new RegExp('^↪?' + imageOverride + '\\S.+$').test(layer.name)) {
                   utils.report(
-                    `Image layer ${layer.name} should be prefixed with "${imageOverride}" (followed by a space).`,
+                    `Image layer ${layer.name} should be prefixed with "${imageOverride}" (followed by no space).`,
                     layer,
                   )
                 }
                 break
               case '_stringValue':
                 // check text format
-                if (!new RegExp('^↪?' + textOverride + ' .+$').test(layer.name)) {
+                if (!new RegExp('^↪?' + textOverride + '\\S.+$').test(layer.name)) {
                   utils.report(
-                    `Text layer ${layer.name} should be prefixed with "${textOverride}"  (followed by a space).`,
+                    `Text layer ${layer.name} should be prefixed with "${textOverride}"  (followed by no space).`,
                     layer,
                   )
                 }
@@ -72,16 +72,16 @@ export const overrideNaming: RuleDefinition = {
                 //We also account for styles that provide an image fill, but have the image override turned off
                 if (layer.style?.fills?.find((fill) => fill.image)) {
                   //check image format
-                  if (!new RegExp('^↪?' + imageOverride + ' .+$').test(layer.name)) {
+                  if (!new RegExp('^↪?' + imageOverride + '\\S.+$').test(layer.name)) {
                     utils.report(
-                      `Image layer ${layer.name} should be prefixed with "${imageOverride}" (followed by a space).`,
+                      `Image layer ${layer.name} should be prefixed with "${imageOverride}" (followed by no space).`,
                       layer,
                     )
                   }
-                } else if (!new RegExp('^↪?' + fillOverride + ' .+$').test(layer.name)) {
+                } else if (!new RegExp('^↪?' + fillOverride + '\\S.+$').test(layer.name)) {
                   //...otherwise we assume it is a color fill
                   utils.report(
-                    `Fill layer ${layer.name} should be prefixed with "${fillOverride}" (followed by a space).`,
+                    `Fill layer ${layer.name} should be prefixed with "${fillOverride}" (followed by no space).`,
                     layer,
                   )
                 }
@@ -94,9 +94,10 @@ export const overrideNaming: RuleDefinition = {
                     return master.symbolID === layer.symbolID
                   })
                 ) {
-                  if (!new RegExp('^↪?' + iconOverride + ' .+$').test(layer.name)) {
+
+                  if (!new RegExp('^↪?' + iconOverride + '\\S.+$').test(layer.name)) {
                     utils.report(
-                      `Icon layer ${layer.name} should be prefixed with "${iconOverride}"  (followed by a space).`,
+                      `Icon layer ${layer.name} should be prefixed with "${iconOverride}"  (followed by no space).`,
                       layer,
                     )
                   }
