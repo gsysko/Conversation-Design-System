@@ -94,6 +94,7 @@ export const overrideNaming: RuleDefinition = {
                     return master.symbolID === layer.symbolID
                   })
                 ) {
+
                   if (!new RegExp('^↪?' + iconOverride + '\\S.+$').test(layer.name)) {
                     utils.report(
                       `Icon layer ${layer.name} should be prefixed with "${iconOverride}"  (followed by no space).`,
