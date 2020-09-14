@@ -13,3 +13,10 @@
 ## Allowed Pages:
 
 - Pages should be either: "⚛️ symbols", "💁‍ component overview", or "🏝 _exploration name_"
+
+## Override Prefixes:
+
+- Fill overrides should be prefixed with "🎨" (followed by no space).
+- Icon overrides should be prefixed with "⚡️" (followed by no space).
+- Image overrides should be prefixed with "🖼" (followed by no space).
+- Text overrides should be prefixed with "✏️" (followed by no space).
